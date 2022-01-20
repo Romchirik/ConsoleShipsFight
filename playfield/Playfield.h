@@ -1,0 +1,10 @@
+#ifndef SHIPSFIGHT_PLAYFIELD_H
+#define SHIPSFIGHT_PLAYFIELD_H
+
+
+class Playfield {
+
+};
+
+
+#endif //SHIPSFIGHT_PLAYFIELD_H
