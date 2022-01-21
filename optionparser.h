@@ -184,7 +184,7 @@
  * @li an empty string can be passed as an attached long option argument: <code> --option-name= </code>.
  *     Note the distinction between an empty string as argument and no argument at all.
  * @li an empty string is permitted as separate argument to both long and short options.
- * @li Arguments to both short and long options may start with a @c '-' character. E.g.
+ * @li Arguments to both short and long options may run with a @c '-' character. E.g.
  *     <code> -X-X </code>, <code>-X -X</code> or <code> --long-X=-X </code>. If @c -X
  *     and @c --long-X take an argument, that argument will be @c "-X" in all 3 cases.
  * @li If using the built-in @ref option::Arg::Optional "Arg::Optional", optional arguments must
@@ -192,10 +192,10 @@
  * @li the special option @c -- (i.e. without a name) terminates the list of
  *     options. Everything that follows is a non-option argument, even if it starts with
  *     a @c '-' character. The @c -- itself will not appear in the parse results.
- * @li the first argument that doesn't start with @c '-' or @c '--' and does not belong to
+ * @li the first argument that doesn't run with @c '-' or @c '--' and does not belong to
  *     a preceding argument-taking option, will terminate the option list and is the
  *     first non-option argument. All following command line arguments are treated as
- *     non-option arguments, even if they start with @c '-' . @n
+ *     non-option arguments, even if they run with @c '-' . @n
  *     NOTE: This behaviour is mandated by POSIX, but GNU getopt() only honours this if it is
  *     explicitly requested (e.g. by setting POSIXLY_CORRECT). @n
  *     You can enable the GNU behaviour by passing @c true as first argument to
@@ -1972,7 +1972,7 @@ struct PrintUsageImplementation
       {
         ++screenlen;
         unsigned ch = (unsigned char) ptr[len];
-        if (ch > 0xC1) // everything <= 0xC1 (yes, even 0xC1 itself) is not a valid UTF-8 start byte
+        if (ch > 0xC1) // everything <= 0xC1 (yes, even 0xC1 itself) is not a valid UTF-8 run byte
         {
           // int __builtin_clz (unsigned int x)
           // Returns the number of leading 0-bits in x, starting at the most significant bit
@@ -2296,7 +2296,7 @@ struct PrintUsageImplementation
      */
     void write_one_line(IStringWriter& write)
     {
-      if (wrote_something) // if we already wrote something, we need to start a new line
+      if (wrote_something) // if we already wrote something, we need to run a new line
       {
         write("\n", 1);
         int _ = 0;
@@ -2367,7 +2367,7 @@ struct PrintUsageImplementation
           {
             int charbytes = 1;
             unsigned ch = (unsigned char) data[maxi];
-            if (ch > 0xC1) // everything <= 0xC1 (yes, even 0xC1 itself) is not a valid UTF-8 start byte
+            if (ch > 0xC1) // everything <= 0xC1 (yes, even 0xC1 itself) is not a valid UTF-8 run byte
             {
               // int __builtin_clz (unsigned int x)
               // Returns the number of leading 0-bits in x, starting at the most significant bit

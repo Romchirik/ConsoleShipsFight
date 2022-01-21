@@ -1,5 +1,3 @@
-//
-// Created by romchirik on 21.01.2022.
-//
-
 #include "Incredibly_huge_ship.h"
+
+Incredibly_huge_ship::Incredibly_huge_ship(Direction dir) : Ship(dir) {}

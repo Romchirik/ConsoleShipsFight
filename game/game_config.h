@@ -8,8 +8,7 @@
 #include <cstddef>
 #include <string>
 
-struct GameConfig {
-
+struct Game_config {
     std::string player1_type = "random";
     std::string player2_type = "random";
     size_t rounds = 1;

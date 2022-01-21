@@ -1,7 +1,8 @@
 #include <iostream>
 #include "optionparser.h"
-#include "game_config.h"
+#include "game/game_config.h"
 #include "arg_checker.h"
+#include "game/Game_controller.h"
 
 enum optionIndex {
     UNKNOWN, HELP, PLAYER_1_TYPE, PLAYER_2_TYPE, COUNT
@@ -40,7 +41,7 @@ int main(int argc, char *argv[]) {
     }
 
     //prepare game config
-    GameConfig config = GameConfig();
+    Game_config config = Game_config();
     if (options[PLAYER_1_TYPE]) {
         config.player1_type = std::string(options[PLAYER_1_TYPE].arg);
     }
@@ -51,10 +52,11 @@ int main(int argc, char *argv[]) {
 
     if (options[COUNT]) {
         long count = strtol(options[COUNT].arg, nullptr, 10);
-        if(count >= 1) {
-            config.rounds =count;
+        if (count >= 1) {
+            config.rounds = count;
         }
     }
-
-
+    Game_controller controller = Game_controller(config);
+    controller.run();
+    return 0;
 }

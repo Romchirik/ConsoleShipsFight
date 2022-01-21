@@ -1,5 +1,3 @@
-//
-// Created by romchirik on 21.01.2022.
-//
-
 #include "Big_ship.h"
+
+Big_ship::Big_ship(Direction dir) : Ship(dir) {}

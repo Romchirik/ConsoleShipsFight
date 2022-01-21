@@ -7,9 +7,11 @@
 
 
 #include "Ship.h"
+#include "../direction.h"
 
-class Big_ship: public Ship{
-
+class Big_ship : public Ship {
+public:
+    explicit Big_ship(Direction dir);
 };
 
 

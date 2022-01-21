@@ -7,9 +7,11 @@
 
 
 #include "Ship.h"
+#include "../direction.h"
 
 class Incredibly_huge_ship : public Ship {
-
+public:
+    explicit Incredibly_huge_ship(Direction dir);
 };
 
 
