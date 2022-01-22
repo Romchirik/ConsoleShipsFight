@@ -4,11 +4,14 @@
 #include <cstddef>
 
 struct Point {
-    size_t x = 0;
-    size_t y = 0;
+    int x = 0;
+    int y = 0;
+
+    Point operator+(const Point &a) const;
+    Point operator-(const Point &other) const;
 };
 
-bool operator==(const Point& point1, const Point& point2);
-bool operator!=(const Point& point1, const Point& point2);
+bool operator==(const Point &point1, const Point &point2);
+bool operator!=(const Point &point1, const Point &point2);
 
 #endif //SHIPSFIGHT_POINT_H

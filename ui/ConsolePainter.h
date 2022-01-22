@@ -6,6 +6,7 @@
 #include "../game/Turn_type.h"
 #include "../game/settings.h"
 
+
 enum Cell_type {
     WATER = ' ',
     SHIP = '#',

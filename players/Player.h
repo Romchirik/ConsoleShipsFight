@@ -16,13 +16,21 @@
 class Player {
 public:
     Player() = default;
+
+    Player(Player &&other) = default;
+
     virtual ~Player() = default;
+
     virtual void init_playfield();
+
     virtual void do_turn() = 0;
 
 protected:
-    std::vector<Ship_type> ship_set = {SMOL, SMOL, SMOL, SMOL, BIG, BIG, BIG, HUGE, HUGE, INCREDIBLY_HUGE};
+    std::vector<Ship_type> available_ships = {INCREDIBLY_HUGE, HUGE, HUGE, BIG, BIG, BIG, SMOL, SMOL, SMOL, SMOL};
     std::vector<std::unique_ptr<Ship>> my_ships = std::vector<std::unique_ptr<Ship>>();
+
+    bool validate_ship(Ship &ship) const;
+
 };
 
 

@@ -10,12 +10,14 @@
 class Ships_game {
 public:
     explicit Ships_game(Game_config &config);
+
     Game_stats run();
+
 private:
     void init();
     bool tick();
 
-    std::vector<std::unique_ptr<Player>> players = std::vector<std::unique_ptr<Player>>();
+   std::vector<std::unique_ptr<Player>> players;
 };
 
 #endif //SHIPSFIGHT_SHIPS_GAME_H

@@ -1,3 +1,5 @@
+
+
 #ifndef SHIPSFIGHT_SETTINGS_H
 #define SHIPSFIGHT_SETTINGS_H
 

@@ -12,7 +12,7 @@ std::unique_ptr<Player> Player_factory::create(const std::string &id) {
 }
 
 Player_factory::Player_factory() {
-    creators.insert(std::make_pair(std::string("random"), [] { return std::unique_ptr<Random_player>(); }));
-    creators.insert(std::make_pair(std::string("console"), [] { return std::unique_ptr<Console_player>(); }));
-    creators.insert(std::make_pair(std::string("optimal"), [] { return std::unique_ptr<Optimal_player>(); }));
+    creators.insert(std::make_pair(std::string("random"), [] { return std::make_unique<Random_player>(); }));
+    creators.insert(std::make_pair(std::string("console"), [] { return std::make_unique<Console_player>(); }));
+    creators.insert(std::make_pair(std::string("optimal"), [] { return std::make_unique<Optimal_player>(); }));
 }

@@ -10,22 +10,17 @@ Ships_game::Ships_game(Game_config &config) {
 Game_stats Ships_game::run() {
     Game_stats stats = Game_stats();
     init();
-    while (tick()) {
-        stats.steps++;
-    }
 
     return stats;
 }
 
 bool Ships_game::tick() {
-    for(auto i: players) {
-        i.get()->init_playfield();
-    }
-
 
     return false;
 }
 
 void Ships_game::init() {
-
+    for(auto &i: players) {
+        i->init_playfield();
+    }
 }

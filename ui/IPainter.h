@@ -15,6 +15,6 @@ public:
     virtual void flush() = 0;
 
     virtual void clear() = 0;
-}
+};
 
 #endif //SHIPSFIGHT_IPAINTER_H

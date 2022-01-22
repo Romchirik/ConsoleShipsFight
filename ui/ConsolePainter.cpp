@@ -2,7 +2,6 @@
 #include <iostream>
 #include "ConsolePainter.h"
 
-#include <cstdlib>
 
 void clear_cli() {
 #ifdef WINDOWS
@@ -28,12 +27,13 @@ void ConsolePainter::flush() {
         printf("%c ", heading_symbol);
         heading_symbol++;
 
-        for (int x = 0; x < PLAYFIELD_WIDTH; x++) {
-            printf("%c ", my_playfield[x][y]);
+        for (auto &x: my_playfield) {
+            printf("%c ", x[y]);
         }
+
         printf("    ");
-        for (int x = 0; x < PLAYFIELD_WIDTH; x++) {
-            printf("%c ", enemy_playfield[x][y]);
+        for (auto &x: enemy_playfield) {
+            printf("%c ", x[y]);
         }
 
         printf("\n");

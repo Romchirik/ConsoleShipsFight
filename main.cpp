@@ -10,13 +10,13 @@ enum optionIndex {
 
 const option::Descriptor usage[] =
         {
-                {UNKNOWN,       0, "",  "",       option::Arg::None,                 "USAGE: ships [options]\n\n"
-                                                                                     "Options:"},
-                {HELP,          0, "h", "help",   option::Arg::None,                 "  -h, --help  \tPrint usage and exit."},
-                {PLAYER_1_TYPE, 0, "f", "first",  Arg_Checker::optional_player_type, "  -f, --first=<random|optimal|console> \tfirst player type"},
-                {PLAYER_2_TYPE, 0, "s", "second", Arg_Checker::optional_player_type, "  -s, --second=<random|optimal|console> \tsecond player type"},
-                {COUNT,         0, "c", "count",  Arg_Checker::optional_numeric,     "  -c, --count=<number_of_rounds> \tNumber of rounds in series"},
-                {0,             0, 0,   0,        0,                                 0}
+                {UNKNOWN,       0, "",      "",       option::Arg::None,                 "USAGE: ships [options]\n\n"
+                                                                                         "Options:"},
+                {HELP,          0, "h",     "help",   option::Arg::None,                 "  -h, --help  \tPrint usage and exit."},
+                {PLAYER_1_TYPE, 0, "f",     "first",  Arg_Checker::optional_player_type, "  -f, --first=<random|optimal|console> \tfirst player type"},
+                {PLAYER_2_TYPE, 0, "s",     "second", Arg_Checker::optional_player_type, "  -s, --second=<random|optimal|console> \tsecond player type"},
+                {COUNT,         0, "c",     "count",  Arg_Checker::optional_numeric,     "  -c, --count=<number_of_rounds> \tNumber of rounds in series"},
+                {0,             0, nullptr, nullptr,  nullptr,                           nullptr}
 
         };
 
@@ -56,7 +56,6 @@ int main(int argc, char *argv[]) {
             config.rounds = count;
         }
     }
-    Game_controller controller = Game_controller(config);
-    controller.run();
+    Game_controller(config).run();
     return 0;
 }
