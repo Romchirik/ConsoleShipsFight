@@ -15,7 +15,7 @@ enum Cell_type {
 
 class ConsolePainter : public IPainter {
 public:
-    void draw_ship(Ship ship) override;
+    void draw_ship(Ship &ship) override;
 
     void draw_prev_turn(Turn_type type) override;
 

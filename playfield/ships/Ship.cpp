@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "Ship.h"
 
 bool Ship::if_collide(const Point &point) {

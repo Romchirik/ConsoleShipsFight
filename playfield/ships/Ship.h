@@ -11,7 +11,7 @@ class Ship {
 public:
     explicit Ship(Direction direction);
     virtual ~Ship() = default;
-    virtual bool if_collide(const Point &point);
+    bool if_collide(const Point &point);
 
     virtual void finalize() = 0;
 

@@ -3,21 +3,18 @@
 
 void Player::init_playfield() {
     for (auto i: available_ships) {
-        bool ship_accepted = false;
         std::unique_ptr<Ship> tmp_ship = Ships_factory::getInstance().create(i, random_direction());
 
-        while (!ship_accepted) {
-            tmp_ship->set_x(rand());
-            tmp_ship->set_y(rand());
+        while (true) {
+            tmp_ship->set_x(rand() % PLAYFIELD_WIDTH);
+            tmp_ship->set_y(rand() % PLAYFIELD_HEIGHT);
             tmp_ship->finalize();
 
-            ship_accepted = validate_ship(*tmp_ship);
-            if (ship_accepted) {
+            if (validate_ship(*tmp_ship)) {
                 my_ships.push_back(std::move(tmp_ship));
+                break;
             }
         }
-
-        my_ships.push_back(std::move(tmp_ship));
     }
 }
 
@@ -27,11 +24,11 @@ bool Player::validate_ship(Ship &ship) const {
     for (auto &i: my_ships) {
         for (auto placed: i->get_body()) {
             for (auto j: ship.get_body()) {
-                if (placed == j ||
-                    placed == j + Point{0, 1} ||
-                    placed == j + Point{0, -1} ||
-                    placed == j + Point{-1, 0} ||
-                    placed == j + Point{1, 0}) {
+                if ((placed == j) ||
+                    (placed == j + Point{0, 1}) ||
+                    (placed == j + Point{0, -1}) ||
+                    (placed == j + Point{-1, 0}) ||
+                    (placed == j + Point{1, 0})) {
                     return false;
                 }
             }
