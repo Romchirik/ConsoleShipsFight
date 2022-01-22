@@ -15,6 +15,7 @@
 class Player_factory {
 public:
     bool contains_player(std::string &player_type);
+
     std::unique_ptr<Player> create(const std::string &id);
 
 
@@ -24,10 +25,12 @@ public:
     }
 
     Player_factory(Player_factory const &) = delete;
+
     void operator=(Player_factory const &) = delete;
 
 private:
     Player_factory();
+
     std::unordered_map<std::string, std::function<std::unique_ptr<Player>()>> creators;
 };
 

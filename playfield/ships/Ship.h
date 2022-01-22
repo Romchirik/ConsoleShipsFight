@@ -10,14 +10,19 @@
 class Ship {
 public:
     explicit Ship(Direction direction);
+
     virtual ~Ship() = default;
+
     bool if_collide(const Point &point);
 
     virtual void finalize() = 0;
 
     std::vector<Point> &get_body();
+
     void set_x(size_t x);
+
     void set_y(size_t y);
+
     void set_head(Point p);
 
 protected:

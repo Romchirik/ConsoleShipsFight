@@ -24,10 +24,12 @@ public:
     }
 
     Ships_factory(Ships_factory const &) = delete;
+
     void operator=(Ships_factory const &) = delete;
 
 private:
     Ships_factory();
+
     std::unordered_map<Ship_type, std::function<std::unique_ptr<Ship>(Direction dir)>> creators;
 };
 

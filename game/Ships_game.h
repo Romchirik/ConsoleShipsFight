@@ -15,9 +15,10 @@ public:
 
 private:
     void init();
+
     bool tick();
 
-   std::vector<std::unique_ptr<Player>> players;
+    std::vector<std::unique_ptr<Player>> players;
 };
 
 #endif //SHIPSFIGHT_SHIPS_GAME_H

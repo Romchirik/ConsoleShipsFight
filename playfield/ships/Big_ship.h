@@ -12,6 +12,7 @@
 class Big_ship : public Ship {
 public:
     explicit Big_ship(Direction dir);
+
     void finalize() override;
 
 };

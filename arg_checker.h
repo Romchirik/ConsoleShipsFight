@@ -11,7 +11,6 @@
 #define SHIPSFIGHT_ARG_CHECKER_H
 
 
-
 struct Arg_Checker : public option::Arg {
     static void printError(const char *msg1, const option::Option &opt, const char *msg2) {
         fprintf(stderr, "ERROR: %s", msg1);

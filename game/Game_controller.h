@@ -9,7 +9,9 @@
 class Game_controller {
 public:
     explicit Game_controller(Game_config &config);
+
     ~Game_controller() = default;
+
     void run();
 
 private:

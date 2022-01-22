@@ -8,10 +8,12 @@
 
 #include "Player.h"
 
-class Optimal_player: public Player{
+class Optimal_player : public Player {
 public:
-    Optimal_player() =default;
-    ~Optimal_player() override =default;
+    Optimal_player() = default;
+
+    ~Optimal_player() override = default;
+
     void do_turn() override;
 };
 

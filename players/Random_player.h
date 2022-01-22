@@ -11,7 +11,9 @@
 class Random_player : public Player {
 public:
     void do_turn() override;
+
     Random_player() = default;
+
     ~Random_player() override = default;
 };
 

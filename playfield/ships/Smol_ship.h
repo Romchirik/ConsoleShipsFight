@@ -9,9 +9,10 @@
 #include "Ship.h"
 #include "../direction.h"
 
-class Smol_ship : public Ship{
+class Smol_ship : public Ship {
 public:
     explicit Smol_ship(Direction dir);
+
     void finalize() override;
 };
 

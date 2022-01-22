@@ -8,10 +8,12 @@
 
 #include "Player.h"
 
-class Console_player: public Player{
+class Console_player : public Player {
 public:
     Console_player() = default;
+
     ~Console_player() override = default;
+
     void do_turn() override;
 };
 
