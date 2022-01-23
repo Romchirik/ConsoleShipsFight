@@ -23,6 +23,7 @@ const option::Descriptor usage[] =
 
 int main(int argc, char *argv[]) {
     //ignoring program name
+    srand(time(NULL));
     argc -= (argc > 0);
     argv += (argc > 0);
 

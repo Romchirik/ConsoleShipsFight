@@ -6,6 +6,7 @@
 #include "game_config.h"
 #include "Game_stats.h"
 #include "../players/Player.h"
+#include "../ui/Console_painter.h"
 
 class Ships_game {
 public:
@@ -18,6 +19,7 @@ private:
 
     bool tick();
 
+    std::shared_ptr<IPainter> painter = std::make_shared<Console_painter>();
     std::vector<std::unique_ptr<Player>> players;
 };
 

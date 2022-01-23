@@ -27,3 +27,22 @@ void Ship::set_head(Point p) {
 std::vector<Point> &Ship::get_body() {
     return body;
 }
+
+bool Ship::on_collide(Point point) {
+    bool result = false;
+    for(int i = 0; i < body.size(); i++) {
+        if(body[i] == point) {
+            result = true;
+            hits[i] = true;
+        }
+    }
+    return result;
+}
+
+bool Ship::is_dead() {
+    bool result = true;
+    for(int i = 0; i < body.size(); i++) {
+        result &= hits[i];
+    }
+    return result;
+}

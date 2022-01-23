@@ -1,9 +1,9 @@
-#ifndef SHIPSFIGHT_CONSOLEPAINTER_H
-#define SHIPSFIGHT_CONSOLEPAINTER_H
+#ifndef SHIPSFIGHT_CONSOLE_PAINTER_H
+#define SHIPSFIGHT_CONSOLE_PAINTER_H
 
 
 #include "IPainter.h"
-#include "../game/Turn_type.h"
+#include "../game/Turn_result.h"
 #include "../game/settings.h"
 
 
@@ -13,11 +13,11 @@ enum Cell_type {
     BROKEN_SHIP = '%'
 };
 
-class ConsolePainter : public IPainter {
+class Console_painter : public IPainter {
 public:
     void draw_ship(Ship &ship) override;
 
-    void draw_prev_turn(Turn_type type) override;
+    void draw_prev_turn(Turn_result type) override;
 
     void draw_string(std::string string) override;
 
@@ -33,4 +33,4 @@ private:
 };
 
 
-#endif //SHIPSFIGHT_CONSOLEPAINTER_H
+#endif //SHIPSFIGHT_CONSOLE_PAINTER_H

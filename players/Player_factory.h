@@ -15,7 +15,6 @@
 class Player_factory {
 public:
     bool contains_player(std::string &player_type);
-
     std::unique_ptr<Player> create(const std::string &id);
 
 

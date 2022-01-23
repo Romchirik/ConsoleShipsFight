@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include "../game/settings.h"
+#include "../ui/IPainter.h"
 
 class Player {
 public:
@@ -19,11 +20,25 @@ public:
 
     Player(Player &&other) = default;
 
+    size_t get_ships_left();
+
+
     virtual ~Player() = default;
 
     virtual void init_playfield();
 
-    virtual void do_turn() = 0;
+    virtual Point do_turn() = 0;
+
+    //called if we shoot to point (method arg)
+    Turn_result get_turn_result(Point point);
+
+    //saving result uf needed
+    virtual void push_turn_result(Turn_result result) = 0;
+
+    std::vector<std::unique_ptr<Ship>> &get_ships();
+
+    //if player need to paint something on screen
+    virtual void add_context_info(std::shared_ptr<IPainter> &painter);
 
 protected:
     std::vector<Ship_type> available_ships = {INCREDIBLY_HUGE, HUGE, HUGE, BIG, BIG, BIG, SMOL, SMOL, SMOL, SMOL};

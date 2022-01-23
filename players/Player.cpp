@@ -46,3 +46,36 @@ bool Player::validate_ship(Ship &ship) const {
     }
     return false;
 }
+
+size_t Player::get_ships_left() {
+    return my_ships.size();
+}
+
+Turn_result Player::get_turn_result(Point point) {
+    Turn_result result = MISS;
+    bool killed[10] = {false};
+
+    for (size_t i = 0; i < my_ships.size(); i++) {
+        if (my_ships[i]->on_collide(point)) { result = HIT; }
+        if (my_ships[i]->is_dead()) {
+            killed[i] = true;
+            result = KILL;
+        }
+    }
+    if (result == MISS) { return result; }
+    for (size_t i = 0; i < 10; i++) {
+        if (killed[i]) {
+            my_ships.erase(my_ships.begin() + i);
+        }
+    }
+
+    return result;
+}
+
+std::vector<std::unique_ptr<Ship>> &Player::get_ships() {
+    return my_ships;
+}
+
+void Player::add_context_info(std::shared_ptr<IPainter> &painter) {
+
+}

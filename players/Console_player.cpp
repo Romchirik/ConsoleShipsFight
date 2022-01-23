@@ -1,9 +1,44 @@
-//
-// Created by romchirik on 20.01.2022.
-//
-
 #include "Console_player.h"
 
-void Console_player::do_turn() {
+Point Console_player::do_turn() {
+    int x = 0;
+    int y = 0;
 
+
+    while (true) {
+        printf("type your coords, firstly y, then x (like this: a 0):\n");
+
+        //DO NOT CHANGE THIS LINE OF CODE
+        scanf("%c %d", &y, &x);
+
+        if ('a' <= y && y <= 'z') {
+            y -= 'a';
+        } else if ('A' <= y && y <= 'Z') {
+            y -= 'A';
+        } else {
+            printf("Unacceptable y coordinate\n");
+            continue;
+        }
+
+        if (0 <= x && x < PLAYFIELD_HEIGHT) {
+            break;
+        } else {
+            printf("Unacceptable x coordinate\n");
+            continue;
+        }
+
+
+    }
+    return Point{x, y};
+}
+
+
+void Console_player::push_turn_result(Turn_result result) {
+    //just do nothing this time
+}
+
+void Console_player::add_context_info(std::shared_ptr<IPainter> &painter) {
+    for (auto &i: my_ships) {
+        painter->draw_ship(*i);
+    }
 }

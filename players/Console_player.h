@@ -14,7 +14,11 @@ public:
 
     ~Console_player() override = default;
 
-    void do_turn() override;
+    Point do_turn() override;
+
+    void push_turn_result(Turn_result result) override;
+
+    void add_context_info(std::shared_ptr<IPainter> &painter) override;
 };
 
 

@@ -10,11 +10,13 @@
 
 class Random_player : public Player {
 public:
-    void do_turn() override;
-
     Random_player() = default;
 
     ~Random_player() override = default;
+
+    Point do_turn() override;
+    void push_turn_result(Turn_result result) override;
+    void add_context_info(std::shared_ptr<IPainter> &painter) override;
 };
 
 
