@@ -31,6 +31,7 @@ bool Ships_game::tick() {
     painter->flush();
     Turn_result result = players[1]->get_turn_result(players[0]->do_turn());
     players[0]->push_turn_result(result);
+    painter->clear();
 
     players[1]->add_context_info(painter);
     painter->flush();

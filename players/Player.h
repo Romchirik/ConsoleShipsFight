@@ -41,11 +41,12 @@ public:
     virtual void add_context_info(std::shared_ptr<IPainter> &painter);
 
 protected:
-    std::vector<Ship_type> available_ships = {INCREDIBLY_HUGE, HUGE, HUGE, BIG, BIG, BIG, SMOL, SMOL, SMOL, SMOL};
+    std::vector<Ship_type> available_ships = {INCREDIBLY_HUGE};
     std::vector<std::unique_ptr<Ship>> my_ships = std::vector<std::unique_ptr<Ship>>();
 
     bool validate_ship(Ship &ship) const;
 
+    Point last_shoot = Point{0, 0};
 };
 
 

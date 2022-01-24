@@ -17,9 +17,11 @@ class Console_painter : public IPainter {
 public:
     void draw_ship(Ship &ship) override;
 
-    void draw_prev_turn(Turn_result type) override;
+    void draw_prev_turns(Point point, Turn_result type) override;
 
     void draw_string(std::string string) override;
+
+    void clear_buffer() override;
 
     void flush() override;
 
@@ -30,6 +32,7 @@ private:
 
     char my_playfield[PLAYFIELD_WIDTH][PLAYFIELD_HEIGHT] = {0};
     char enemy_playfield[PLAYFIELD_WIDTH][PLAYFIELD_HEIGHT] = {0};
+
 };
 
 

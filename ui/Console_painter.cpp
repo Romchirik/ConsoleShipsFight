@@ -40,13 +40,14 @@ void Console_painter::flush() {
             printf("%c|", x[y]);
         }
         printf("\n");
-        if(y != PLAYFIELD_HEIGHT - 1){
+        if (y != PLAYFIELD_HEIGHT - 1) {
             printf(" |=|=|=|=|=|=|=|=|=|=|   |=|=|=|=|=|=|=|=|=|=|");
             printf("\n");
         }
     }
     printf(" ---------------------   ---------------------");
     std::cout << string_buffer << std::endl;
+
 }
 
 void Console_painter::draw_ship(Ship &ship) {
@@ -55,10 +56,17 @@ void Console_painter::draw_ship(Ship &ship) {
     }
 }
 
-void Console_painter::draw_prev_turn(Turn_result type) {
-
+void Console_painter::draw_prev_turns(Point point, Turn_result type) {
+    enemy_playfield[point.x][point.y] = type;
 }
 
 void Console_painter::draw_string(std::string string) {
 
+}
+
+void Console_painter::clear_buffer() {
+    string_buffer.clear();
+
+    memset(my_playfield, ' ', PLAYFIELD_HEIGHT * PLAYFIELD_WIDTH);
+    memset(enemy_playfield, ' ', PLAYFIELD_HEIGHT * PLAYFIELD_WIDTH);
 }

@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
     }
 
     if (options[PLAYER_2_TYPE]) {
-        config.player1_type = std::string(options[PLAYER_2_TYPE].arg);
+        config.player2_type = std::string(options[PLAYER_2_TYPE].arg);
     }
 
     if (options[COUNT]) {
