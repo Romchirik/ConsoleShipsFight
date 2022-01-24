@@ -1,7 +1,3 @@
-//
-// Created by romchirik on 20.01.2022.
-//
-
 #ifndef SHIPSFIGHT_PLAYER_FACTORY_H
 #define SHIPSFIGHT_PLAYER_FACTORY_H
 

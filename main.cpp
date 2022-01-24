@@ -12,10 +12,10 @@ const option::Descriptor usage[] =
         {
                 {UNKNOWN,       0, "",      "",       option::Arg::None,                 "USAGE: ships [options]\n\n"
                                                                                          "Options:"},
-                {HELP,          0, "h",     "help",   option::Arg::None,                 "  -h, --help  \tPrint usage and exit."},
-                {PLAYER_1_TYPE, 0, "f",     "first",  Arg_Checker::optional_player_type, "  -f, --first=<random|optimal|console> \tfirst player type"},
-                {PLAYER_2_TYPE, 0, "s",     "second", Arg_Checker::optional_player_type, "  -s, --second=<random|optimal|console> \tsecond player type"},
-                {COUNT,         0, "c",     "count",  Arg_Checker::optional_numeric,     "  -c, --count=<number_of_rounds> \tNumber of rounds in series"},
+                {HELP,          0, "",     "help",   option::Arg::None,                 "   --help  \tPrint usage and exit."},
+                {PLAYER_1_TYPE, 0, "",     "first",  Arg_Checker::optional_player_type, "   --first=<random|optimal|console> \tfirst player type"},
+                {PLAYER_2_TYPE, 0, "",     "second", Arg_Checker::optional_player_type, "   --second=<random|optimal|console> \tsecond player type"},
+                {COUNT,         0, "",     "count",  Arg_Checker::optional_numeric,     "   --count=<number_of_rounds> \tNumber of rounds in series"},
                 {0,             0, nullptr, nullptr,  nullptr,                           nullptr}
 
         };
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (options[HELP] || argc == 0) {
+    if (options[HELP]) {
         option::printUsage(std::cout, usage);
         return 0;
     }

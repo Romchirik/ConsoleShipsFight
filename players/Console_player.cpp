@@ -26,9 +26,8 @@ Point Console_player::do_turn() {
             printf("Unacceptable x coordinate\n");
             continue;
         }
-
-
     }
+
     last_shoot = Point{x, y};
     return last_shoot;
 }
@@ -51,6 +50,7 @@ void Console_player::add_context_info(std::shared_ptr<IPainter> &painter) {
 }
 
 Console_player::Console_player() {
+    verbose = true;
     for (int y = 0; y < PLAYFIELD_HEIGHT; y++) {
         for (int x = 0; x < PLAYFIELD_WIDTH; x++) {
             turn_history[x][y] = NONE;

@@ -1,7 +1,3 @@
-//
-// Created by romchirik on 20.01.2022.
-//
-
 #ifndef SHIPSFIGHT_PLAYER_H
 #define SHIPSFIGHT_PLAYER_H
 
@@ -40,12 +36,13 @@ public:
     //if player need to paint something on screen
     virtual void add_context_info(std::shared_ptr<IPainter> &painter);
 
+    bool if_verbose();
 protected:
     std::vector<Ship_type> available_ships = {INCREDIBLY_HUGE};
     std::vector<std::unique_ptr<Ship>> my_ships = std::vector<std::unique_ptr<Ship>>();
 
     bool validate_ship(Ship &ship) const;
-
+    bool verbose = false;
     Point last_shoot = Point{0, 0};
 };
 

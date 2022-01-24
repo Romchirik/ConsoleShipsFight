@@ -79,3 +79,7 @@ std::vector<std::unique_ptr<Ship>> &Player::get_ships() {
 void Player::add_context_info(std::shared_ptr<IPainter> &painter) {
 
 }
+
+bool Player::if_verbose() {
+    return verbose;
+}

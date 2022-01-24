@@ -1,7 +1,3 @@
-//
-// Created by romchirik on 20.01.2022.
-//
-
 #ifndef SHIPSFIGHT_GAME_CONFIG_H
 #define SHIPSFIGHT_GAME_CONFIG_H
 

@@ -1,6 +1,3 @@
-//
-// Created by romchirik on 20.01.2022.
-//
 #include <cstdio>
 #include <cstdlib>
 #include "optionparser.h"

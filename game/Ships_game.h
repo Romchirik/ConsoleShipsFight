@@ -21,6 +21,8 @@ private:
 
     std::shared_ptr<IPainter> painter = std::make_shared<Console_painter>();
     std::vector<std::unique_ptr<Player>> players;
+
+    void perform_turn(size_t turning_id, size_t attacking_id);
 };
 
 #endif //SHIPSFIGHT_SHIPS_GAME_H

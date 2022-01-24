@@ -1,7 +1,3 @@
-//
-// Created by romchirik on 21.01.2022.
-//
-
 #ifndef SHIPSFIGHT_INCREDIBLY_HUGE_SHIP_H
 #define SHIPSFIGHT_INCREDIBLY_HUGE_SHIP_H
 

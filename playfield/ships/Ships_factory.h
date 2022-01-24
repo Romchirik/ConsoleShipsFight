@@ -1,7 +1,3 @@
-//
-// Created by romchirik on 21.01.2022.
-//
-
 #ifndef SHIPSFIGHT_SHIPS_FACTORY_H
 #define SHIPSFIGHT_SHIPS_FACTORY_H
 
