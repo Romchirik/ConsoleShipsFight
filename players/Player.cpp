@@ -1,9 +1,9 @@
 #include "Player.h"
 #include "../playfield/ships/Ships_factory.h"
 
-void Player::init_playfield() {
+void Player::init_playfield(std::shared_ptr<IPainter> &painter) {
     for (auto i: available_ships) {
-        std::unique_ptr<Ship> tmp_ship = Ships_factory::getInstance().create(i, random_direction());
+        auto tmp_ship = Ships_factory::getInstance().create(i, random_direction());
 
         while (true) {
             tmp_ship->set_x(rand() % PLAYFIELD_WIDTH);
@@ -28,7 +28,11 @@ bool Player::validate_ship(Ship &ship) const {
                     (placed == j + Point{0, 1}) ||
                     (placed == j + Point{0, -1}) ||
                     (placed == j + Point{-1, 0}) ||
-                    (placed == j + Point{1, 0})) {
+                    (placed == j + Point{1, 0}) ||
+                    (placed == j + Point{-1, -1}) ||
+                    (placed == j + Point{-1, 1}) ||
+                    (placed == j + Point{1, 1}) ||
+                    (placed == j + Point{1, -1})) {
                     return false;
                 }
             }
@@ -44,6 +48,7 @@ bool Player::validate_ship(Ship &ship) const {
         (0 <= back.y && back.y < PLAYFIELD_HEIGHT)) {
         return true;
     }
+
     return false;
 }
 
@@ -76,10 +81,33 @@ std::vector<std::unique_ptr<Ship>> &Player::get_ships() {
     return my_ships;
 }
 
+bool Player::if_verbose() const {
+    return verbose;
+}
+
+Player::Player() {
+    for (int y = 0; y < PLAYFIELD_HEIGHT; y++) {
+        for (int x = 0; x < PLAYFIELD_WIDTH; x++) {
+            turn_history[x][y] = NONE;
+        }
+    }
+}
+
 void Player::add_context_info(std::shared_ptr<IPainter> &painter) {
 
 }
 
-bool Player::if_verbose() {
-    return verbose;
+Point Player::random_shoot() {
+    int x, y;
+    while (true) {
+        x = rand() % PLAYFIELD_WIDTH;
+        y = rand() % PLAYFIELD_HEIGHT;
+
+        if (turn_history[x][y] != NONE) {
+            continue;
+        } else {
+            break;
+        }
+    }
+    return Point{x, y};
 }

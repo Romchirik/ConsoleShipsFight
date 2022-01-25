@@ -2,6 +2,7 @@
 #define SHIPSFIGHT_OPTIMAL_PLAYER_H
 
 
+#include <queue>
 #include "Player.h"
 
 class Optimal_player : public Player {
@@ -14,7 +15,11 @@ public:
     void add_context_info(std::shared_ptr<IPainter> &painter) override;
 
 private:
-    Turn_result turn_history[PLAYFIELD_WIDTH][PLAYFIELD_HEIGHT];
+    Turn_result last_result = NONE;
+    std::queue<Point> point_queue;
+    Point last_hit = Point{-1, -1};
+
+    void find_mark_killed();
 };
 
 

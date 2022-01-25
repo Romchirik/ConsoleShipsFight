@@ -16,8 +16,10 @@ public:
 
     void add_context_info(std::shared_ptr<IPainter> &painter) override;
 
+    void init_playfield(std::shared_ptr<IPainter> &painter) override;
+
 private:
-    Turn_result turn_history[PLAYFIELD_WIDTH][PLAYFIELD_HEIGHT];
+    static std::string type_to_string(Ship_type type);
 };
 
 

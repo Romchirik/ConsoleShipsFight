@@ -41,7 +41,7 @@ bool Ships_game::tick() {
 
 void Ships_game::init() {
     for (auto &i: players) {
-        i->init_playfield();
+        i->init_playfield(painter);
     }
 }
 

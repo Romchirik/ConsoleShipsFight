@@ -12,7 +12,7 @@ void Huge_ship::finalize() {
             break;
         }
         case RIGHT: {
-            offset = Point{1, 0};
+            offset = Point{-1, 0};
             break;
         }
         case DOWN: {
@@ -20,7 +20,7 @@ void Huge_ship::finalize() {
             break;
         }
         case LEFT: {
-            offset = Point{-1, 0};
+            offset = Point{1, 0};
             break;
         }
     }

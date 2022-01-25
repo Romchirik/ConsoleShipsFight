@@ -1,14 +1,12 @@
 #include "Random_player.h"
 
 Point Random_player::do_turn() {
-    int x = rand() % PLAYFIELD_WIDTH;
-    int y = rand() % PLAYFIELD_HEIGHT;
-
-    return Point{x, y};
+    last_shoot = random_shoot();
+    return last_shoot;
 }
 
 void Random_player::push_turn_result(Turn_result result) {
-    //random player do nothing
+    turn_history[last_shoot.x][last_shoot.y] = result;
 }
 
 void Random_player::add_context_info(std::shared_ptr<IPainter> &painter) {
